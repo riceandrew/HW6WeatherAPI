@@ -26,17 +26,25 @@ function getWeather() {
         $('.weatherResponse').append("<h3>" + "Wind Speed : " + wind + "<h3>");
         loopLocalStorage()
     })
-    
-    // function weatherCallback(weatherData) {   
-    // }
+
 }
 function loopLocalStorage (){
     console.log("HIST", window.localStorage.getItem("History"))
     let hist = JSON.parse(window.localStorage.getItem("History")) || []; // "[Austin, Houston]" ----> [Austin, Houston]
-    
+    console.log(hist)
     for (var i =0; i < hist.length; i++){
        var apiSearch=  'http://api.openweathermap.org/data/2.5/weather?q=' + hist[i] + '&appid=b6fa23b52bf3cf09a13463a9202b84e8';
        console.log("API", apiSearch)
+
+
+        var a = $("<button>");
+        a.text(hist[i]);
+        a.addClass("cityButton")
+
+
+
     }
+    $(".weatherStore").append(a);
+    $(document).on("click", ".cityButton", apiSearch)
 }
 loopLocalStorage()
