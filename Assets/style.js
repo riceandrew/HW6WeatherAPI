@@ -39,10 +39,6 @@ function loopLocalStorage (){
 
         var a = $("<button>");
         a.text(hist[i]);
-        a.addClass("cityButton")
-
-
-
     }
     $(".weatherStore").append(a);
     $(document).on("click", ".cityButton", apiSearch)
